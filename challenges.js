@@ -161,12 +161,12 @@ computeRemainder(10.5, 3) //=> 1.5
 // Your solution for 05-computeRemainder:
 
 function computeRemainder(a, b) {
-  let twoNumbers = a % b
-  if (b = 0) {
+  if (b === 0) {
     return Infinity
-  } else {
-    return twoNumbers
-  }
+  } 
+  let quotient = Math.floor(a / b);
+  let remainder = a - (quotient * b);
+  return remainder
 }
 
 computeRemainder(10,2) //=> 0
