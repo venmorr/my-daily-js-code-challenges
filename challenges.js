@@ -95,11 +95,12 @@ sumNumbers([]) //=> 0
 -----------------------------------------------------------------------------*/
 // Your solution for 03-sumNumbers here:
 
-function sumNumbers([]) {
-  // for each index in an array
-  // add the number at each index to the previous index's number
-  // return the sum
-}
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  } 
+    return numbers.reduce((acc, curr) => acc + curr, 0);
+  }
 
 sumNumbers([10]) //=> 10
 sumNumbers([5, 10]) //=> 15
