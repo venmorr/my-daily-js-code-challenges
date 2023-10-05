@@ -99,7 +99,7 @@ function sumNumbers(numbers) {
   if (numbers.length === 0) {
     return 0;
   } 
-    return numbers.reduce((acc, curr) => acc + curr, 0);
+    return numbers.reduce((acc, curr) => acc + curr, 0)
   }
 
 sumNumbers([10]) //=> 10
@@ -127,15 +127,17 @@ addList(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
 
-function addList() {
-  // Write a function called addList that accepts any quantity of numbers as arguments, adds them together, and returns the resulting sum.
-  // Assume all parameters will be numbers.
-  // If called with no arguments, return 0 (zero).
+function addList(a, b, c) {
+  return a + b + c
 }
 
-addList(1) //=> 1
-addList(1,50,1.23) //=> 52.23
-addList(7,-12) //=> -5
+const listX = [1]
+const listY = [1, 50, 1.23]
+const listZ = [7, -12]
+  
+addList(addList(...listX)) //=> 1
+addList(addList(...listY)) //=> 52.23
+addList(addList(...listZ)) //=> -5
 
 /*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
@@ -164,8 +166,8 @@ function computeRemainder(a, b) {
   if (b === 0) {
     return Infinity
   } 
-  let quotient = Math.floor(a / b);
-  let remainder = a - (quotient * b);
+  let quotient = Math.floor(a / b)
+  let remainder = a - (quotient * b)
   return remainder
 }
 
@@ -196,15 +198,21 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
-function range() {
-  //Write a function called range that accepts two integers as arguments and returns an array of integers starting with the first argument up to one less than the second argument.
-  // The range function must be called with the first argument less than or equal to the second argument; otherwise, return the string "First argument must be less than second".
+function range(a, b) {
+  if(a > b) {
+    return 'First argument must be less then second'
+  }
+  let inRange = []
+  for(let i = a; i < b; i++) {
+    inRange.push(i)
+  }
+  return inRange
 }
 
-range(1,4) //=> [1,2,3]
-range(-2, 3) //=> [-2,-1,0,1,2]
-range(1,1) //=> []
-range(5,2) //=> "First argument must be less than second"
+range(range(1,4)) //=> [1,2,3]
+range(range(-2, 3)) //=> [-2,-1,0,1,2]
+range(range(1,1)) //=> []
+range(range(5,2)) //=> "First argument must be less than second"
 
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
@@ -223,13 +231,11 @@ reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES"
 -----------------------------------------------------------------------------*/
 // Your solution for 07-reverseUpcaseString here:
 
-function reverseUpcaseString() {
-  // Write a function called reverseUpcaseString that accepts a single string argument, then returns the string with its characters in reverse order and converts all characters to uppercase.
-
+function reverseUpcaseString(string) {
+  return string.split('').reverse().join('').toUpperCase()
 }
 
-
-reverseUpcaseString("SEI Rocks!") //=> "!SKCOR IES"
+reverseUpcaseString(reverseUpcaseString("SEI Rocks!")) //=> "!SKCOR IES"
 
 
 /*-----------------------------------------------------------------------------
@@ -251,8 +257,7 @@ removeEnds('a') //=> "" (empty string)
 // Your solution for 08-removeEnds here:
 
 function removeEnds() {
-  // Write a function called removeEnds that accepts a single string argument, then returns a string with the first and last characters removed.
-  // If the length of the string argument is less than 3, return an empty string.
+  
 }
 
 removeEnds('SEI Rocks!') //=> "EI Rocks"
@@ -791,7 +796,7 @@ intersection([1, 'a', true, 1, 1], [true, 1, 'b', 1]) //=> [1, true, 1]
 -----------------------------------------------------------------------------*/
 // Your solution for 20-intersection here:
 
-function intersection() {
+function intersection(a, b) {
   // Write a function named intersection that accepts two arguments, which are both arrays. The array arguments may contain any mixture of strings, numbers, or booleans - but no reference types (objects).
   // The function should return a new array containing all elements in common, including repeating element values.
   // The ordering of the elements in the returned array is not important.
