@@ -256,8 +256,13 @@ removeEnds('a') //=> "" (empty string)
 -----------------------------------------------------------------------------*/
 // Your solution for 08-removeEnds here:
 
-function removeEnds() {
+function removeEnds(string) {
+ string.split('')
+ if (string.length < 3) {
+  return ''
+ }
   
+  return string.shift().pop().join('')
 }
 
 removeEnds('SEI Rocks!') //=> "EI Rocks"
@@ -302,10 +307,7 @@ charCount('Today is fantastic!')
 // Your solution for 09-charCount here:
 
 function charCount() {
-  //Write a function named charCount that accepts a single string argument and returns an object that represents the count of each character in the string.
-  // The returned object should have keys representing the character with its value set to the number of times the character appears in the string argument.
-  // Upper and lower case characters should be counted separately.
-  // Space characters should be counted too.
+  
 }
 
 charCount('hello') 
@@ -354,13 +356,15 @@ formatWithPadding(1234, '*', 3) //=> "1234"
 -----------------------------------------------------------------------------*/
 // Your solution for 10-formatWithPadding here:
 
-function formatWithPadding() {
-  // Write a function called formatWithPadding that accepts three arguments:
-    // A numeric argument (an integer) representing the number to format.
-    // A string argument (a single character) representing the character used to "pad" the returned string to a minimum length.
-    // Another numeric argument (an integer) representing the length to pad the returned string to.
-  // The function should return the integer as a string, left padded to the length of the 3rd arg using the character provided in the 2nd arg.
-  // If the length of the integer converted to a string is equal or greater than the 3rd argument, no padding is needed - just return the integer as a string.
+function formatWithPadding(input, padder, outLength) {
+  let inLength = input.split('')
+
+  let toAdd = outLength - inLength.length
+
+  for(let i = toAdd; i < b; i++) {
+    inLength.unshift(i)
+  }
+  
 }
 
 formatWithPadding(123, '0', 5) //=> "00123"
@@ -391,11 +395,14 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-function isPalindrome() {
-  // Write a function called isPalindrome that accepts a single string argument, then returns true or false depending upon whether or not the string is a palindrome.
-  // A palindrome is a word or phrase that is the same forward or backward.
-  // Casing and spaces are not included when considering whether or not a string is a palindrome.
-  // If the length of the string is 0 or 1, return true.
+function isPalindrome(stringF) {
+  let stringB = stringF.split('').reverse().join('')
+
+  if (stringF === stringB) {
+    return true
+  } else {
+    return false
+  }
 }
 
 isPalindrome('SEI Rocks') //=> false
@@ -429,11 +436,20 @@ hammingDistance('abc', 'ab') //=> NaN
 -----------------------------------------------------------------------------*/
 // Your solution for 12-hammingDistance here:
 
-function hammingDistance() {
-  // Write a function named hammingDistance that accepts two arguments, which are both strings of equal length.
-  // The function should return the count of the symbols (characters, numbers, etc.) at the same position within each string that are different.
-  // If the strings are not of the same length, the function should return NaN.
+function hammingDistance(string1, string2) {
+  if (string1.length !== string2.length) {
+    return NaN
+  }
+  let common = 0
+  for (let i = 0; i < string1.length; i++) {
+    if (string1.charAt(i) !== string2.charAt(i)) {
+      common++
+    }
+  }
+  return common
 }
+
+
 
 hammingDistance('abc', 'abc') //=> 0
 hammingDistance('a1c', 'a2c') //=> 1
