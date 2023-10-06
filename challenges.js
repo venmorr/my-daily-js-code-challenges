@@ -258,8 +258,7 @@ function removeEnds(string) {
  if (string.length < 3) {
   return ''
  }
-  
-  return string.shift().pop().join('')
+  return string.split('').splice(1, string.length - 2).join('')
 }
 
 removeEnds('SEI Rocks!') //=> "EI Rocks"
