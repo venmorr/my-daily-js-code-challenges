@@ -304,7 +304,6 @@ charCount('Today is fantastic!')
 
 function charCount(str) { 
   let object = {}
-
   for (let i = 0; i < str.length; i++) {
     const char = str[i]
     if (object[char]) {
@@ -313,7 +312,6 @@ function charCount(str) {
       object[char] = 1
     }
   }
-
   return object
 }
 
@@ -364,14 +362,14 @@ formatWithPadding(1234, '*', 3) //=> "1234"
 // Your solution for 10-formatWithPadding here:
 
 function formatWithPadding(input, padder, outLength) {
-  let inLength = input.split('')
+  let inputArray = input.toString().split('')
+  let toAdd = outLength - inputArray.length
 
-  let toAdd = outLength - inLength.length
-
-  for(let i = toAdd; i < b; i++) {
-    inLength.unshift(i)
+  for(let i = 0; i < toAdd; i++) {
+    inputArray.unshift(padder)
   }
-  
+
+  return inputArray.join('')
 }
 
 formatWithPadding(123, '0', 5) //=> "00123"
