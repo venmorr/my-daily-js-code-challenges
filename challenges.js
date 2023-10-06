@@ -127,17 +127,14 @@ addList(7,-12) //=> -5
 -----------------------------------------------------------------------------*/
 // Your solution for 04-addList here:
 
-function addList(a, b, c) {
-  return a + b + c
+function addList(...array) {
+  return array.reduce((counter, element) => counter + element, 0)
 }
 
-const listX = [1]
-const listY = [1, 50, 1.23]
-const listZ = [7, -12]
-  
-addList(addList(...listX)) //=> 1
-addList(addList(...listY)) //=> 52.23
-addList(addList(...listZ)) //=> -5
+
+addList(1) //=> 1
+addList(1,50,1.23) //=> 52.23
+addList(7,-12) //=> -5
 
 /*-----------------------------------------------------------------------------
 Challenge: 05-computeRemainder
@@ -480,9 +477,7 @@ mumble('!A 2') //=> '!-AA-   -2222'
 // Your solution for 13-mumble here:
 
 function mumble() {
-  // Write a function called mumble that accepts a single string argument.
-  // The function should return a string that has each character repeated the number of times according to its position within the string arg. Additionally, each repeated section of characters should be separated by a hyphen (-).
-  //Examples describe it best..
+  
 }
 
 mumble('X') //=> 'X'
@@ -512,9 +507,7 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 // Your solution for 14-fromPairs here:
 
 function fromPairs() {
-  // Write a function named fromPairs that creates an object from an array containing nested arrays.
-  // Each nested array will have two elements representing key/value pairs used to create key/value pairs in an object to be returned by the function.
-  // If a key appears in multiple pairs, the rightmost pair should overwrite the previous entry in the object.
+  
 }
 
 fromPairs([ ['a', 1], ['b', 2], ['c', 3] ])
@@ -548,8 +541,7 @@ mergeObjects({a: 1, b: 2, c: 3}, {d: 4}, {b: 22, d: 44})
 // Your solution for 15-mergeObjects here:
 
 function mergeObjects() {
-  // Write a function named mergeObjects that accepts at least two objects as arguments, merges the properties of the second through n objects into the first object, then finally returns the first object.
-  // If any objects have the same property key, values from the object(s) later in the arguments list should overwrite earlier values.
+  
 }
 
 mergeObjects({}, {a: 1}) 
