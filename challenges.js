@@ -302,8 +302,19 @@ charCount('Today is fantastic!')
 -----------------------------------------------------------------------------*/
 // Your solution for 09-charCount here:
 
-function charCount() {
-  
+function charCount(str) { 
+  let object = {}
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i]
+    if (object[char]) {
+      object[char] ++
+    } else {
+      object[char] = 1
+    }
+  }
+
+  return object
 }
 
 charCount('hello') 
