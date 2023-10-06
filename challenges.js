@@ -197,8 +197,8 @@ range(5,2) //=> "First argument must be less than second"
 
 function range(a, b) {
   if(a > b) {
-    return 'First argument must be less then second'
-  }
+    return 'First argument must be less than second'
+  } 
   let inRange = []
   for(let i = a; i < b; i++) {
     inRange.push(i)
