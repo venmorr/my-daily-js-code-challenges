@@ -400,14 +400,11 @@ isPalindrome('') //=> true
 -----------------------------------------------------------------------------*/
 // Your solution for 11-isPalindrome here:
 
-function isPalindrome(stringF) {
-  let stringB = stringF.split('').reverse().join('')
+function isPalindrome(string) {
+  let stringB = string.toLowerCase().split('').reverse().join('').split(' ').join('')
+  let stringF = string.toLowerCase().split(' ').join('')
 
-  if (stringF === stringB) {
-    return true
-  } else {
-    return false
-  }
+  return stringF === stringB
 }
 
 isPalindrome('SEI Rocks') //=> false
