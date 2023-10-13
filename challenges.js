@@ -481,9 +481,22 @@ mumble('!A 2') //=> '!-AA-   -2222'
 -----------------------------------------------------------------------------*/
 // Your solution for 13-mumble here:
 
-function mumble() {
-  
+function mumble(string) {
+  const splitString = string.split('')
+  splitString.unshift('s') // sacrificial 's'
+  const mumbledArray = []
+  splitString.forEach((el, idx) => {
+    let char = splitString[idx] 
+    for (let jdx = 0; jdx < idx; jdx++) {
+      mumbledArray.push(char)
+    } 
+    mumbledArray.push('-')
+  })
+  mumbledArray.shift()
+  mumbledArray.pop()
+  return mumbledArray.join('')
 }
+
 
 mumble('X') //=> 'X'
 mumble('abc') //=> 'a-bb-ccc'
@@ -511,8 +524,9 @@ fromPairs([ ['name', 'Sam"], ['age', 24], ['name', 'Sally'] ]) //=> { name: "Sal
 -----------------------------------------------------------------------------*/
 // Your solution for 14-fromPairs here:
 
-function fromPairs() {
-  
+function fromPairs([]) {
+  // create an object from an array that will contain nested arrays
+  // 
 }
 
 fromPairs([ ['a', 1], ['b', 2], ['c', 3] ])
@@ -655,11 +669,8 @@ mapArray( ['rose', 'tulip', 'daisy'], function(f, i) {
 -----------------------------------------------------------------------------*/
 // Your solution for 17-mapArray here:
 
-function mapArray() {
-  // Write a function named mapArray that accepts two arguments: a single array and a callback function.
-  // The mapArray function should return a new array of the same length as the array argument.
-  // The mapArray function should iterate over each element in the array (first arg). For each iteration, invoke the callback function (2nd arg), passing to it as arguments, the current element, and its index.
-  // Whatever is returned by the callback function should be included in the new array at current iteration's index.
+function mapArray(arr, func) {
+  return arr.map((el, idx) => func(el, idx))
 }
 
 mapArray( [1, 2, 3], function(n) {
