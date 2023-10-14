@@ -777,9 +777,18 @@ isPrime(200) //=> false
 -----------------------------------------------------------------------------*/
 // Your solution for 19-isPrime here:
 
-function isPrime() {
-  // Write a function named isPrime that returns true when the integer argument passed to it is a prime number and false when the argument passed to it is not prime.
-  // A prime number is a whole number (integer) greater than 1 that is evenly divisible by only itself.
+function isPrime(x) {
+  let primeCheck = true
+
+  if ( x <= 1 ) primeCheck = false
+  
+  if (x - Math.floor(x) !== 0) primeCheck = false 
+
+  for (let i = 2; i < x; i++) {
+    if ( x % i === 0 ) primeCheck = false 
+  } 
+  
+  return primeCheck 
 }
 
 isPrime(2) //=> true
@@ -787,6 +796,7 @@ isPrime(3) //=> true
 isPrime(4) //=> false
 isPrime(29) //=> true
 isPrime(200) //=> false
+
 
 /*-----------------------------------------------------------------------------
 Challenge: 20-intersection
